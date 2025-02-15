@@ -1,4 +1,4 @@
-import { isRouteErrorResponse, useRouteError } from "react-router-dom";
+import { isRouteErrorResponse, Link, useRouteError } from "react-router-dom";
 
 const Error = () => {
   const error = useRouteError();
@@ -12,6 +12,8 @@ const Error = () => {
       ) : (
         <h1>Unexpected error occured</h1>
       )}
+
+      <Link to="/">go to home</Link>
     </div>
   );
 };

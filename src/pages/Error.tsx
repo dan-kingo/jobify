@@ -1,7 +1,17 @@
+import { isRouteErrorResponse, useRouteError } from "react-router-dom";
+
 const Error = () => {
+  const error = useRouteError();
   return (
     <div>
-      <h1>Error</h1>
+      {isRouteErrorResponse(error) ? (
+        <>
+          <h1>404</h1>
+          <h3>Page Not Found</h3>
+        </>
+      ) : (
+        <h1>Unexpected error occured</h1>
+      )}
     </div>
   );
 };

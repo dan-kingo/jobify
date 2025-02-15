@@ -5,4 +5,4 @@ const App = () => {
 };
 
 export default App;
-// #9781FA #2190FF #0E1219
+// #9781FA #2190FF #0E1219 #F8FAFC

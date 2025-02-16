@@ -1,7 +1,14 @@
+import FormControl from "../components/FormControl";
+
 const Register = () => {
   return (
     <div>
-      <h1>Register</h1>
+      <FormControl
+        labelText="Email Address"
+        name="email"
+        type="email"
+        placeholder="Email Address"
+      />
     </div>
   );
 };

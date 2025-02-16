@@ -8,6 +8,7 @@ const FormControl = ({ labelText, name, type, placeholder }: Props) => {
   return (
     <div className="relative">
       <input
+        required
         id={labelText}
         name={name}
         type={type}

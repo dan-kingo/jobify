@@ -47,7 +47,7 @@ const Register = () => {
               <div className="relative">
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-[#9781FA] to-[#2190FF]  text-white rounded-sm px-2 py-1 hover:opacity-85"
+                  className="bg-gradient-to-r from-[#9781FA] w-full to-[#2190FF]  text-white rounded-sm px-2 py-1 hover:opacity-85"
                 >
                   Register
                 </button>

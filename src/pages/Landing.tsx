@@ -3,6 +3,7 @@ import "aos/dist/aos.css";
 import logo from "../assets/images/logo-cropped.svg";
 import heroImage from "../assets/images/main.svg";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   useEffect(() => {
@@ -25,12 +26,18 @@ const Landing = () => {
             quasi praesentium, eveniet cupiditate.
           </p>
           <div className="mt-12 flex gap-4">
-            <button className="py-2 px-4 rounded-sm text-white gradient-background hover:opacity-80 hover:animate-pulse ">
+            <Link
+              to="/register"
+              className="py-2 px-4 rounded-sm text-white gradient-background hover:opacity-80 hover:animate-pulse "
+            >
               Register
-            </button>
-            <button className="py-2 px-4 rounded-sm text-white gradient-background hover:opacity-80 hover:animate-pulse">
+            </Link>
+            <Link
+              to="/login"
+              className="py-2 px-4 rounded-sm text-white gradient-background hover:opacity-80 hover:animate-pulse"
+            >
               Login/Demo User
-            </button>
+            </Link>
           </div>
         </div>
         <div className="lg:flex sm:hidden" data-aos="fade-left">

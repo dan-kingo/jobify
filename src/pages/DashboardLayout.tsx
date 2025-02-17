@@ -1,3 +1,4 @@
+import ToggleDarkMode from "@/components/ToggleDarkMode";
 import { Button } from "@/components/ui/button";
 
 const DashboardLayout = () => {
@@ -5,6 +6,7 @@ const DashboardLayout = () => {
     <div>
       <h1>Dashboard Layout</h1>
       <Button>Dashboard</Button>
+      <ToggleDarkMode />
     </div>
   );
 };

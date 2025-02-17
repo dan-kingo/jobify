@@ -14,9 +14,9 @@ import CustomButton from "./CustomButton";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
-    <div className=" shadow-md dark:shadow-gray-900 py-2 px-14 border-b-2 fixed top-0 w-full">
+    <div className=" shadow-md dark:shadow-gray-900 py-2 lg:px-14 sm:px-4 border-b-2 fixed top-0 w-full">
       <div className="flex justify-between items-center">
-        <img src={logo} alt="logo image" className="w-32" />
+        <img src={logo} alt="logo image" className="lg:w-32 sm:w-24" />
         <div className="flex items-center gap-4">
           <ToggleDarkMode />
 

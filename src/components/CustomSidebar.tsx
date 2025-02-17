@@ -1,5 +1,3 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
-
 import {
   Sidebar,
   SidebarContent,
@@ -11,35 +9,9 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar";
+import sidebarItems from "@/utils/sidebarItems";
 
 // Menu items.
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
-];
 
 const CustomSidebar = () => {
   return (
@@ -47,13 +19,15 @@ const CustomSidebar = () => {
       <Sidebar className="sidebar-height">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Application</SidebarGroupLabel>
-            <SidebarGroupContent>
+            <SidebarGroupContent className="mt-6 ">
               <SidebarMenu>
-                {items.map((item) => (
+                {sidebarItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <a href={item.url}>
+                      <a
+                        href={item.path}
+                        className="hover:text-[#9781FA] text-[20px]  py-8 ps-12"
+                      >
                         <item.icon />
                         <span>{item.title}</span>
                       </a>

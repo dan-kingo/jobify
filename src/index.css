@@ -28,6 +28,10 @@ body {
 .gradient-background {
   @apply bg-gradient-to-r from-[#9781FA] to-[#2190FF];
 }
+
+.sidebar-height {
+  margin-top: 78px;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

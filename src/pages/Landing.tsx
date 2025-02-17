@@ -19,7 +19,7 @@ const Landing = () => {
           <h1 className="lg:text-6xl sm:text-4xl sm:text-justify pb-8 font-bold">
             Job <span className="gradient">Tracking</span> App
           </h1>
-          <p className="text-gray-700 text-balance font-thin">
+          <p className="text-gray-700 dark:text-gray-300 text-balance font-thin">
             Lorem ipsum dolor sit amet, consectetur adipisicing. Dignissimos
             amet temporibus, eveniet aliquid, consectetur quo odit sapiente fuga
             iste voluptatum beatae laudantium minima. Ipsa quae quibusdam et vel

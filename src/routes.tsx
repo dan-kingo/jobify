@@ -1,5 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Error, HomeLayout, Landing, Login, Register } from "./pages";
+import {
+  AddJob,
+  AllJobs,
+  Error,
+  HomeLayout,
+  Landing,
+  Login,
+  Profile,
+  Register,
+  Stats,
+} from "./pages";
 import DashboardLayout from "./pages/DashboardLayout";
 
 const router = createBrowserRouter([
@@ -23,6 +33,28 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardLayout />,
+        children: [
+          {
+            index: true,
+            element: <Stats />,
+          },
+          {
+            path: "all-jobs",
+            element: <AllJobs />,
+          },
+          {
+            path: "add-job",
+            element: <AddJob />,
+          },
+          {
+            path: "settings",
+            element: <AddJob />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
     ],
   },

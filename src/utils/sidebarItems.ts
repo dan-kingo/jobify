@@ -3,27 +3,27 @@ import { BarChart, Briefcase, PlusCircle, Settings, User } from "lucide-react";
 const sidebarItems = [
   {
     title: "Add Job",
-    path: "/add-job",
+    path: "/dashboard/add-job",
     icon: PlusCircle,
   },
   {
     title: "All Jobs",
-    path: "/all-jobs",
+    path: "/dashboard/all-jobs",
     icon: Briefcase,
   },
   {
     title: "Stats",
-    path: "/stats",
+    path: "",
     icon: BarChart,
   },
   {
     title: "Profile",
-    path: "/profile",
+    path: "/dashboard/profile",
     icon: User,
   },
   {
     title: "Settings",
-    path: "/settings",
+    path: "/dashboard/settings",
     icon: Settings,
   },
 ];

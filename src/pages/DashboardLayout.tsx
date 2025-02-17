@@ -1,13 +1,10 @@
-import ToggleDarkMode from "@/components/ToggleDarkMode";
-import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
 
 const DashboardLayout = () => {
   return (
-    <div>
-      <h1>Dashboard Layout</h1>
-      <Button>Dashboard</Button>
-      <ToggleDarkMode />
-    </div>
+    <>
+      <Navbar />
+    </>
   );
 };
 

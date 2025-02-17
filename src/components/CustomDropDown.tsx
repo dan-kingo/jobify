@@ -13,7 +13,7 @@ import CustomButton from "./CustomButton";
 
 const CustomDropDown = () => {
   return (
-    <>
+    <div className="sm:hidden lg:block">
       <DropdownMenu>
         <DropdownMenuTrigger className="focus:outline-none">
           <CustomButton>
@@ -50,7 +50,7 @@ const CustomDropDown = () => {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-    </>
+    </div>
   );
 };
 

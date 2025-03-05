@@ -9,7 +9,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar";
 import sidebarItems from "@/utils/sidebarItems";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // Menu items.
 
@@ -24,13 +24,19 @@ const CustomSidebar = () => {
                 {sidebarItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <Link
+                      <NavLink
                         to={item.path}
-                        className="hover:text-[#9781FA] text-[20px]  py-8 ps-12"
+                        className={({ isActive }) =>
+                          `text-[20px] py-8 ps-12 ${
+                            isActive
+                              ? "text-[#9781FA] !important"
+                              : "hover:text-[#9781FA]"
+                          }`
+                        }
                       >
                         <item.icon />
                         <span>{item.title}</span>
-                      </Link>
+                      </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

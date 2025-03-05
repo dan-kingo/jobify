@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FormControl from "../components/FormControl";
+import registerData from "@/assets/constants/registerData";
 
 const Register = () => {
   return (
@@ -13,37 +14,16 @@ const Register = () => {
           </div>
           <div className="divide-y divide-gray-200">
             <div className=" text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-              <FormControl
-                type="text"
-                labelText="First Name"
-                name="first name"
-                placeholder="First Name"
-              />
-              <FormControl
-                type="text"
-                labelText="Last Name"
-                name="last name"
-                placeholder="Last Name"
-              />
+              {registerData.map((registerInput, index) => (
+                <FormControl
+                  key={index}
+                  labelText={registerInput.labelText}
+                  placeholder={registerInput.placeholder}
+                  type={registerInput.type}
+                  name={registerInput.name}
+                />
+              ))}
 
-              <FormControl
-                type="text"
-                labelText="Location"
-                name="location"
-                placeholder="Location"
-              />
-              <FormControl
-                type="email"
-                labelText="Email Address"
-                name="email"
-                placeholder="Email Address"
-              />
-              <FormControl
-                type="password"
-                labelText="Password"
-                name="password"
-                placeholder="Password"
-              />
               <div className="relative">
                 <button
                   type="submit"

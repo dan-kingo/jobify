@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 
 import FormControl from "../components/FormControl";
 import registerData from "@/assets/constants/registerData";
@@ -15,7 +16,9 @@ const Register = () => {
   } = useForm<userData>({ resolver: zodResolver(userSchemas) });
 
   const onSubmit = (data: userData) => {
-    console.log(data);
+    axios.post("http://localhost:3000/api/auth/register", data).catch((err) => {
+      console.log(err);
+    });
     reset();
   };
   return (

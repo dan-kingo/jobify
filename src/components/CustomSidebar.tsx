@@ -19,7 +19,7 @@ const CustomSidebar = () => {
       <Sidebar className="sidebar-height">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupContent className="mt-6 ">
+            <SidebarGroupContent className="mt-6">
               <SidebarMenu>
                 {sidebarItems.map((item) => (
                   <SidebarMenuItem key={item.title}>

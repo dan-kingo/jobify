@@ -2,13 +2,13 @@ const registerData = [
   {
     type: "text",
     labelText: "First Name",
-    name: "first_name",
+    name: "firstName",
     placeholder: "First Name",
   },
   {
     type: "text",
     labelText: "Last Name",
-    name: "last_name",
+    name: "lastName",
     placeholder: "Last Name",
   },
   {

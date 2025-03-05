@@ -18,10 +18,11 @@ const userSchemas = z.object({
       message:
         " must contain at least one uppercase letter, one lowercase letter, and one number",
     }),
-  location: z.string(),
-  role: z.enum(["user", "admin"]).optional(),
+  location: z
+    .string({ required_error: "location is required!" })
+    .min(3, { message: "Minimum 3 character allowed!" }),
 });
 
-export type userSchema = z.infer<typeof userSchemas>;
+export type userData = z.infer<typeof userSchemas>;
 
 export default userSchemas;

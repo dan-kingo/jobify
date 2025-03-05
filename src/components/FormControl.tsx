@@ -3,12 +3,21 @@ interface Props {
   name: string;
   type: string;
   placeholder: string;
+  register: any;
+  error?: string;
 }
-const FormControl = ({ labelText, name, type, placeholder }: Props) => {
+const FormControl = ({
+  labelText,
+  name,
+  type,
+  placeholder,
+  error,
+  register,
+}: Props) => {
   return (
     <div className="relative">
       <input
-        required
+        {...register(name)}
         id={labelText}
         name={name}
         type={type}
@@ -21,6 +30,7 @@ const FormControl = ({ labelText, name, type, placeholder }: Props) => {
       >
         {labelText}
       </label>
+      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
     </div>
   );
 };

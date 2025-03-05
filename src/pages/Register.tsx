@@ -24,8 +24,8 @@ const Register = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="relative sm:max-w-md sm:mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#9781FA] to-[#2190FF] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6  sm:rounded-3xl"></div>
-        <div className="relative px-4 py-10 bg-white dark:bg-[#121212] shadow-lg sm:rounded-3xl sm:p-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#9781FA] to-[#2190FF] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 hidden md:block  sm:rounded-3xl"></div>
+        <div className="relative px-4 py-10 bg-white  dark:bg-[#121212] shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-sm mx-auto"></div>
           <div>
             <h1 className="text-2xl font-semibold mb-4">Register Here</h1>
@@ -52,7 +52,7 @@ const Register = () => {
                 </button>
               </div>
               <div className="relative">
-                <p className="dark:text-gray-50">
+                <p className="dark:text-gray-50 text-sm md:text-lg">
                   Already a member?{" "}
                   <Link to="/login" className="text-[#9781FA]">
                     Login

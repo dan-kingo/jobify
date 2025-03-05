@@ -36,6 +36,7 @@ const Register = () => {
             description: `Thanks for registering, ${data.firstName} ${data.lastName}!`,
           });
           reset();
+          setTimeout(() => navigate("/login"), 1500);
         } else {
           toast.error("Something went wrong. Please try again.");
         }

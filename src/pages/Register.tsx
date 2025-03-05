@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 import FormControl from "../components/FormControl";
 import registerData from "@/assets/constants/registerData";
 import userSchemas, { userData } from "../utils/userSchema";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,15 +22,40 @@ const Register = () => {
   const onSubmit = async (data: userData) => {
     setLoading(true);
 
-    await axios
-      .post("http://localhost:3000/api/auth/register", data)
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-    reset();
-  };
+    let isComponentMounted = true;
 
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/auth/register",
+        data
+      );
+
+      if (isComponentMounted) {
+        if (response.data.success) {
+          toast.success("Registerd successfully!", {
+            description: `Thanks for registering, ${data.firstName} ${data.lastName}!`,
+          });
+          reset();
+        } else {
+          toast.error("Something went wrong. Please try again.");
+        }
+      }
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        const errorMessage =
+          error.response?.data?.message || "An unknown error occurred.";
+        toast.error(errorMessage);
+      } else {
+        toast.error("Failed to register.");
+      }
+    } finally {
+      if (isComponentMounted) setLoading(false);
+    }
+
+    return () => {
+      isComponentMounted = false;
+    };
+  };
   return (
     <form
       className="min-h-screen bg-gray-100 dark:bg-[#09090B] py-6 flex flex-col justify-center sm:py-12"

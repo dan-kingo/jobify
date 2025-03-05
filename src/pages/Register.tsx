@@ -6,6 +6,7 @@ import axios from "axios";
 import FormControl from "../components/FormControl";
 import registerData from "@/assets/constants/registerData";
 import userSchemas, { userData } from "../utils/userSchema";
+import { useState } from "react";
 
 const Register = () => {
   const {
@@ -14,13 +15,20 @@ const Register = () => {
     formState: { errors },
     reset,
   } = useForm<userData>({ resolver: zodResolver(userSchemas) });
+  const [isLoading, setLoading] = useState(false);
 
-  const onSubmit = (data: userData) => {
-    axios.post("http://localhost:3000/api/auth/register", data).catch((err) => {
-      console.log(err);
-    });
+  const onSubmit = async (data: userData) => {
+    setLoading(true);
+
+    await axios
+      .post("http://localhost:3000/api/auth/register", data)
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
     reset();
   };
+
   return (
     <form
       className="min-h-screen bg-gray-100 dark:bg-[#09090B] py-6 flex flex-col justify-center sm:py-12"
@@ -51,7 +59,7 @@ const Register = () => {
                   type="submit"
                   className="bg-gradient-to-r from-[#9781FA] w-full to-[#2190FF]  text-white rounded-sm px-2 py-1 hover:opacity-85"
                 >
-                  Register
+                  {isLoading ? "Registering..." : "Register"}
                 </button>
               </div>
               <div className="relative">

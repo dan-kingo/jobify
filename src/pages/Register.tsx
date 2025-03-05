@@ -1,66 +1,25 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios, { AxiosError } from "axios";
 
 import FormControl from "../components/FormControl";
 import registerData from "@/assets/constants/registerData";
 import userSchemas, { userData } from "../utils/userSchema";
-import { useState } from "react";
-import { toast } from "sonner";
+import useRegister from "@/hooks/useRegister";
 
 const Register = () => {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm<userData>({ resolver: zodResolver(userSchemas) });
-  const [isLoading, setLoading] = useState(false);
+  const { registerUser, isLoading } = useRegister();
 
-  const onSubmit = async (data: userData) => {
-    setLoading(true);
-
-    let isComponentMounted = true;
-
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
-        data
-      );
-
-      if (isComponentMounted) {
-        if (response.data.success) {
-          toast.success("Registerd successfully!", {
-            description: `Thanks for registering, ${data.firstName} ${data.lastName}!`,
-          });
-          reset();
-          setTimeout(() => navigate("/login"), 1500);
-        } else {
-          toast.error("Something went wrong. Please try again.");
-        }
-      }
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        const errorMessage =
-          error.response?.data?.message || "An unknown error occurred.";
-        toast.error(errorMessage);
-      } else {
-        toast.error("Failed to register.");
-      }
-    } finally {
-      if (isComponentMounted) setLoading(false);
-    }
-
-    return () => {
-      isComponentMounted = false;
-    };
-  };
   return (
     <form
       className="min-h-screen bg-gray-100 dark:bg-[#09090B] py-6 flex flex-col justify-center sm:py-12"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit((data) => registerUser(data, reset))}
     >
       <div className="relative sm:max-w-md sm:mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-[#9781FA] to-[#2190FF] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 hidden md:block  sm:rounded-3xl"></div>

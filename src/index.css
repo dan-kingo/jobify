@@ -34,6 +34,8 @@ body {
 }
 @layer base {
   :root {
+    --light-bg: white;
+    --dark-bg: #121212;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -112,17 +114,27 @@ body {
   }
 }
 
-@layer utilities {
-  .autofill\:bg-transparent:-webkit-autofill {
-    background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    box-shadow: 0 0 0px 1000px white inset !important;
-  }
+:root {
+  --light-bg: white;
+  --dark-bg: #374151; /* Dark gray, same as input bg */
 }
+
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:hover {
   background-color: transparent !important;
-  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--light-bg) inset !important;
+  box-shadow: 0 0 0px 1000px var(--light-bg) inset !important;
+  color: #111 !important;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0px 1000px var(--dark-bg) inset !important;
+    box-shadow: 0 0 0px 1000px var(--dark-bg) inset !important;
+    color: #f3f4f6 !important;
+  }
 }

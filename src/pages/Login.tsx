@@ -26,7 +26,10 @@ const Login = () => {
     try {
       const response = await axios.post(
         "http://localhost:3000/api/auth/login",
-        data
+        data,
+        {
+          withCredentials: true,
+        }
       );
 
       if (isComponentMounted) {
